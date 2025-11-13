@@ -93,6 +93,9 @@ def make_parser():
     parser.add_argument("--start_frame_no", type=int, default=1, help="starting frame file number (counting from 1)")
     parser.add_argument("--vis_type", default="basic", type=str, help="visualization type, with OR without detections and tracklets before Kalman filter update OR no visualization: full | basic | no_vis")
 
+    # sequence name
+    parser.add_argument('--seq', type=str, default='seq')
+
     return parser
 
 
@@ -210,8 +213,9 @@ def image_demo(det_source, vis_folder, current_time, args):
     files = files[args.start_frame_no-1:]
 
     ### For the info logging file save ###
-    timestamp = time.strftime("%Y_%m_%d_%H_%M_%S", current_time)
-    save_folder = osp.join(vis_folder, timestamp)
+    # timestamp = time.strftime("%Y_%m_%d_%H_%M_%S", current_time)
+    # save_folder = osp.join(vis_folder, timestamp)
+    save_folder = osp.join(vis_folder, args.seq)
     os.makedirs(save_folder, exist_ok=True)
     ### / ###
 
@@ -292,8 +296,9 @@ def image_demo(det_source, vis_folder, current_time, args):
                 img_info_prev = img_info
 
                 if args.save_result:
-                    timestamp = time.strftime("%Y_%m_%d_%H_%M_%S", current_time)
-                    save_folder = osp.join(vis_folder, timestamp)
+                    # timestamp = time.strftime("%Y_%m_%d_%H_%M_%S", current_time)
+                    # save_folder = osp.join(vis_folder, timestamp)
+                    save_folder = osp.join(vis_folder, args.seq)
                     os.makedirs(save_folder, exist_ok=True)
                     if vis_type == 'full' or vis_type == 'basic':
                         cv2.imwrite(osp.join(save_folder, osp.basename(img_path)), online_im)
@@ -307,7 +312,8 @@ def image_demo(det_source, vis_folder, current_time, args):
                     break
 
     if args.save_result:
-        res_file = osp.join(vis_folder, f"{timestamp}.txt")
+        # res_file = osp.join(vis_folder, f"{timestamp}.txt")
+        res_file = osp.join(vis_folder, f"{args.seq}.txt")
         with open(res_file, 'w') as f:
             f.writelines(results)
         logger.info(f"save results to {res_file}")

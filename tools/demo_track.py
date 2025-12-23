@@ -189,11 +189,11 @@ def get_detections(img, frame_id, det_list):
     for i, line in enumerate(dets_per_frame):
         det = line.split(",") # "frame_id,-1,left,top,width,height,conf,-1,-1,-1"
 
-        dets_tensor[i,0] = int(det[2])
-        dets_tensor[i,1] = int(det[3])
-        dets_tensor[i,2] = int(det[4]) + int(det[2])
-        dets_tensor[i,3] = int(det[5]) + int(det[3])
-        dets_tensor[i,4] = int(det[6])
+        dets_tensor[i,0] = float(det[2])
+        dets_tensor[i,1] = float(det[3])
+        dets_tensor[i,2] = float(det[4]) + float(det[2])
+        dets_tensor[i,3] = float(det[5]) + float(det[3])
+        dets_tensor[i,4] = float(det[6])
 
     # To adjust to the format used
     dets_tensor = dets_tensor[None, :]

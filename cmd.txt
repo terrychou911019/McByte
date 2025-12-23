@@ -1,12 +1,14 @@
-TGB:
-
-python tools/demo_track.py --demo video --path videos/seq01.mp4 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar
-python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/TGB/dataset/seq01/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq seq01
-
 SportsMOT:
 
 python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/sportsmot_publish/dataset/val/v_00HRwkvvjtQ_c001/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq v_00HRwkvvjtQ_c001
+python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/sportsmot_publish/dataset/val/v_00HRwkvvjtQ_c001/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq v_00HRwkvvjtQ_c001 --det_path D:/CourtAthena/02_Datasets/sportsmot_publish/dataset/val/v_00HRwkvvjtQ_c001/gt/gt.txt
+
+TGB:
+
+python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/TGB/dataset/seq01/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq seq01
+python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/TGB/dataset/seq01/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq seq01 --det_path D:/CourtAthena/02_Datasets/TGB/dataset/seq01/gt/gt.txt
 
 TrackID3x3:
 
-python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/trackid3x3_720p/dataset/IMG_0104/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq IMG_0104
+python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/trackid3x3_720p/test/IMG_0106/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq IMG_0106
+python tools/demo_track.py --demo image --path D:/CourtAthena/02_Datasets/trackid3x3_720p/test/IMG_0106/img1 -f exps/example/mot/yolox_x_mix_det.py -c pretrained/yolox_x_sports_mix.pth.tar --seq IMG_0106 --det_path D:/CourtAthena/02_Datasets/trackid3x3_720p/test/IMG_0106/gt/gt.txt
